@@ -1,11 +1,17 @@
 import React from 'react';
 
-import { StyledMain } from '../Layout/Layout.styles';
 import Toolbar from '../Navigation/Toolbar/Toolbar';
+import { StyledSection, StyledContainer } from '../Layout/Layout.styles';
+
+import Footer from '../Footer/Footer';
+
 const layout = (props) => (
 	<>
 		<Toolbar />
-		<StyledMain>{props.children}</StyledMain>
+		<StyledContainer>
+			<StyledSection>{props.children}</StyledSection>
+		</StyledContainer>
+		<Footer />
 	</>
 );
 

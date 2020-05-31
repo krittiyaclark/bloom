@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import PostSummary from './components/Posts/PostSummary';
 import PostDetail from './components/Posts/PostDetail';
-import Dashboard from './components/Dashboard/Dashboard';
+import Dashboard from './components/Dashboards/Dashboard/Dashboard';
 
 import Layout from './components/Layout/Layout';
 

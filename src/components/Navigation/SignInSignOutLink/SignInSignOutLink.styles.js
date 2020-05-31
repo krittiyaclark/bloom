@@ -21,7 +21,7 @@ export const NavigationItemLI = styled.li`
 	width: 100%;
 `;
 
-export const NavigationItemA = styled.a`
+export const NavigationItemLink = styled.a`
 	color: #8f5c2c;
 	text-decoration: none;
 	width: 100%;
