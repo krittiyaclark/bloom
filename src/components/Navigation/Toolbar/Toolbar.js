@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import Logo from '../../Logo/Logo';
+import Logo from '../../Logo/Logo';
 import SignInLinks from '../SignInSignOutLink/SignInLink';
 import SignOutLinks from '../SignInSignOutLink/SignOutLink';
 import Input from '../../UI/Input/Input';
@@ -19,7 +19,7 @@ const toolbar = (props) => (
 			{/* <DrawerToggle clicked={props.drawerToggleClicked} /> */}
 			<ToolbarLeft>
 				<div>MENU</div>
-				<div>LOGO</div>
+				<Logo height='80%' />
 			</ToolbarLeft>
 
 			<ToolbarCenter>

@@ -8,12 +8,6 @@ export const ToolbarHeader = styled.header`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	@media (max-width: 499px) {
-		.DesktopOnly {
-			display: none;
-		}
-	}
 `;
 
 export const ToolbarNav = styled.div`
@@ -27,14 +21,10 @@ export const ToolbarNav = styled.div`
 	display: flex;
 	align-items: center;
 	padding: 0 20px;
-	/* top: 0;
-	left: 0;
-	/* background-color: #57e6e6; */
-	/* display: flex;
-	justify-content: space-between;
-	align-items: center;
-	box-sizing: border-box;
-	/* z-index: 90; */
+
+	@media (max-width: 499px) {
+		display: none;
+	}
 `;
 
 export const ToolbarLogo = styled.div`
