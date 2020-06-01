@@ -22,9 +22,9 @@ export const ToolbarNav = styled.div`
 	align-items: center;
 	padding: 0 20px;
 
-	@media (max-width: 499px) {
+	/* @media (max-width: 499px) {
 		display: none;
-	}
+	} */
 `;
 
 export const ToolbarLogo = styled.div`
@@ -40,13 +40,17 @@ export const ToolbarLeft = styled.div`
 export const ToolbarCenter = styled.div`
 	width: 33.333%;
 	text-align: center;
+
+	@media (max-width: 499px) {
+		display: none;
+	}
 `;
 
 export const ToolbarRight = styled.div`
 	width: 33.333%;
 	text-align: right;
 
-	svg {
-		margin-right: 20px;
+	@media (max-width: 499px) {
+		display: none;
 	}
 `;

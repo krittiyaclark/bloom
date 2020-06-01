@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Toolbar from '../Navigation/Toolbar/Toolbar';
 import { StyledSection, StyledContainer } from '../Layout/Layout.styles';
@@ -6,15 +6,36 @@ import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
 
 import Footer from '../Footer/Footer';
 
-const layout = (props) => (
-	<>
-		<Toolbar />
-		<SideDrawer />
-		<StyledContainer>
-			<StyledSection>{props.children}</StyledSection>
-		</StyledContainer>
-		<Footer />
-	</>
-);
+class Layout extends Component {
+	state = {
+		showSideDrawer: true,
+	};
 
-export default layout;
+	sideDrawerClosedHandler = () => {
+		this.setState({ showSideDrawer: false });
+	};
+
+	// sideDrawerToggleHandler = () => {
+	// 	this.setState((prevState) => {
+	// 		return { showSideDrawer: !prevState.showSideDrawer };
+	// 	});
+	// };
+
+	render() {
+		return (
+			<>
+				<Toolbar />
+				<SideDrawer
+					closed={this.sideDrawerClosedHandler}
+					open={this.state.showSideDrawer}
+				/>
+				<StyledContainer>
+					<StyledSection>{this.props.children}</StyledSection>
+				</StyledContainer>
+				<Footer />
+			</>
+		);
+	}
+}
+
+export default Layout;
