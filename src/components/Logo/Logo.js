@@ -5,7 +5,8 @@ import { StyledLogo, StyledImage } from './Logo.syles';
 
 const logo = (props) => (
 	<StyledLogo style={{ height: props.height }}>
-		<StyledImage src={Logo} alt='Bloom Logo' />
+		{/* <StyledImage src={Logo} alt='Bloom Logo' /> */}
+		<p>Bloom.</p>
 	</StyledLogo>
 );
 

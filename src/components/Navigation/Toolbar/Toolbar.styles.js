@@ -35,6 +35,19 @@ export const ToolbarLogo = styled.div`
 export const ToolbarLeft = styled.div`
 	width: 33.333%;
 	text-align: left;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+	box-sizing: border-box;
+
+	@media (max-width: 499px) {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 `;
 
 export const ToolbarCenter = styled.div`

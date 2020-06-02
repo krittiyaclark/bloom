@@ -8,23 +8,23 @@ import Footer from '../Footer/Footer';
 
 class Layout extends Component {
 	state = {
-		showSideDrawer: true,
+		showSideDrawer: false,
 	};
 
 	sideDrawerClosedHandler = () => {
 		this.setState({ showSideDrawer: false });
 	};
 
-	// sideDrawerToggleHandler = () => {
-	// 	this.setState((prevState) => {
-	// 		return { showSideDrawer: !prevState.showSideDrawer };
-	// 	});
-	// };
+	sideDrawerToggleHandler = () => {
+		this.setState((prevState) => {
+			return { showSideDrawer: !prevState.showSideDrawer };
+		});
+	};
 
 	render() {
 		return (
 			<>
-				<Toolbar />
+				<Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} />
 				<SideDrawer
 					closed={this.sideDrawerClosedHandler}
 					open={this.state.showSideDrawer}
