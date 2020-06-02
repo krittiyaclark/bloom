@@ -5,7 +5,7 @@ const PostDetail = (props) => {
 	return (
 		<div className='project-list section'>
 			<div className='project-list section'>
-				<span>Project Titile</span>
+				<span>Project Titile: {id}</span>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -14,8 +14,12 @@ const PostDetail = (props) => {
 					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 					pariatur.
 				</p>
-				<p>Posted by Pai</p>
-				<p>9 November, 9pm: {id}</p>
+				<div>
+					<p>Posted by Pai</p>
+				</div>
+				<div>
+					<p>9 November, 9pm</p>
+				</div>
 			</div>
 		</div>
 	);

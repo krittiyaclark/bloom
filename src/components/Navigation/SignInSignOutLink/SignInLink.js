@@ -10,7 +10,7 @@ const SignInLinks = (props) => (
 	<NavigationItemsUL>
 		<NavigationItemLI>
 			<NavLink to='/' active>
-				Create Notes
+				Create Post
 			</NavLink>
 		</NavigationItemLI>
 		<NavigationItemLI>
