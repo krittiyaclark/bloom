@@ -2,8 +2,8 @@ import React from 'react';
 
 import { StyledThumbnailContainer } from './Thumbnail.styles';
 
-const thumbnail = (props) => {
+const Thumbnail = (props) => {
 	return <StyledThumbnailContainer>{props.children}</StyledThumbnailContainer>;
 };
 
-export default thumbnail;
+export default Thumbnail;

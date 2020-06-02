@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Logo from '../../Logo/Logo';
+import ImagesLogo from '../../Logo/Logo';
 import SignInLinks from '../SignInSignOutLink/SignInLink';
 import SignOutLinks from '../SignInSignOutLink/SignOutLink';
 import Input from '../../UI/Input/Input';
@@ -13,7 +13,7 @@ import {
 	ToolbarRight,
 } from './Toolbar.styles';
 
-const toolbar = (props) => (
+const Toolbar = (props) => (
 	<ToolbarHeader>
 		<ToolbarNav>
 			<ToolbarLeft>
@@ -36,4 +36,4 @@ const toolbar = (props) => (
 	</ToolbarHeader>
 );
 
-export default toolbar;
+export default Toolbar;

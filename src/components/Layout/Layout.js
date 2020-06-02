@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
 import Toolbar from '../Navigation/Toolbar/Toolbar';
-import { StyledSection, StyledContainer } from '../Layout/Layout.styles';
+import {
+	StyledWrapper,
+	StyledSection,
+	StyledContainer,
+} from '../Layout/Layout.styles';
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
 
 import Footer from '../Footer/Footer';
@@ -23,7 +27,7 @@ class Layout extends Component {
 
 	render() {
 		return (
-			<>
+			<StyledWrapper>
 				<Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} />
 				<SideDrawer
 					closed={this.sideDrawerClosedHandler}
@@ -33,7 +37,7 @@ class Layout extends Component {
 					<StyledSection>{this.props.children}</StyledSection>
 				</StyledContainer>
 				<Footer />
-			</>
+			</StyledWrapper>
 		);
 	}
 }

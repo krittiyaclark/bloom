@@ -9,9 +9,7 @@ import {
 const SignInLinks = (props) => (
 	<NavigationItemsUL>
 		<NavigationItemLI>
-			<NavLink to='/' active>
-				Create Post
-			</NavLink>
+			<NavLink to='/createpost'>Create Post</NavLink>
 		</NavigationItemLI>
 		<NavigationItemLI>
 			<NavLink to='/'>Sign Out</NavLink>
