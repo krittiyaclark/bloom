@@ -5,20 +5,23 @@ import Thumbnail from '../UI/Thumbnail/Thumbnail';
 
 import { StyledPostWrapper } from './Posts.styles';
 
-const PostSummary = (props) => (
-	<Card>
-		<StyledPostWrapper>
-			<Thumbnail>
-				<img src='https://via.placeholder.com/150' alt='thumbnail' />
-			</Thumbnail>
+const PostSummary = ({ postLists }) => {
+	console.log(postLists);
+	return (
+		<Card>
+			<StyledPostWrapper>
+				<Thumbnail>
+					<img src='https://via.placeholder.com/150' alt='thumbnail' />
+				</Thumbnail>
 
-			<div className='content'>
-				<span>Project Titile</span>
-				<p>Posted by Pai</p>
-				<p>9 November, 9pm</p>
-			</div>
-		</StyledPostWrapper>
-	</Card>
-);
+				<div className='content'>
+					<span>{postLists.title}</span>
+					<p>Posted by Pai</p>
+					<p>9 November, 9pm</p>
+				</div>
+			</StyledPostWrapper>
+		</Card>
+	);
+};
 
 export default PostSummary;

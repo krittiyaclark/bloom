@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 import Notifications from '../Notification/Notifications';
 import PostList from '../../Posts/PostList';
 
@@ -11,11 +11,13 @@ import {
 
 class Dashboard extends Component {
 	render() {
+		console.log(this.props);
+		const { posts } = this.props;
 		return (
 			<StyledDashboardContainer>
 				<StyledDashboardSection>
 					<h3>Today</h3>
-					<PostList />
+					<PostList postLists={posts} />
 				</StyledDashboardSection>
 
 				<StyledDashboardAside>
@@ -27,4 +29,10 @@ class Dashboard extends Component {
 	}
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+	return {
+		posts: state.post.postsProjectList,
+	};
+};
+
+export default connect(mapStateToProps)(Dashboard);

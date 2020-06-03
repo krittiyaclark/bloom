@@ -3,12 +3,14 @@ import React from 'react';
 import PostSummary from './PostSummary';
 // import { Link } from 'react-router-dom';
 
-const ProjectList = () => {
+const ProjectList = ({ postLists }) => {
+	console.log(postLists);
 	return (
 		<>
-			<PostSummary />
-			<PostSummary />
-			<PostSummary />
+			{postLists &&
+				postLists.map((post) => {
+					return <PostSummary key={post.id} postLists={post} />;
+				})}
 		</>
 	);
 };
