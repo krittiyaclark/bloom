@@ -1,5 +1,2 @@
-const PostActionTypes = {
-	CREATE_POST: 'CREATE_POST',
-};
-
-export default PostActionTypes;
+export const CREATE_POST = 'CREATE_POST';
+export const CREATE_POST_ERROR = 'CREATE_POST_ERROR';
