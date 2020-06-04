@@ -10,15 +10,10 @@ const INITIAL_STATE = {
 
 const postReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
-		case PostActionTypes.CREATE_POST:
+		case 'CREATE_POST':
 			console.log('CREATE_POST', action.post);
-			return state;
-		case PostActionTypes.CREATE_POST_ERROR:
-			console.log('CREATE_POST_ERROR', action.error);
-			return state;
-		default:
-			return state;
 	}
+	return state;
 };
 
 export default postReducer;
