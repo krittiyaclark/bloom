@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-var firebaseConfig = {
+var config = {
 	apiKey: 'AIzaSyDrVTdj8hGrzWhe2kR5YQmMjY6aJsVAMa4',
 	authDomain: 'bloom-e0422.firebaseapp.com',
 	databaseURL: 'https://bloom-e0422.firebaseio.com',
@@ -13,8 +13,13 @@ var firebaseConfig = {
 	measurementId: 'G-19D1K3NJWJ',
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-//  Initialize Firestore
-firebase.firestore().settings({ timestampsInSnapshots: true });
+firebase.initializeApp(config);
+
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: 'select_account' });
+export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
 export default firebase;

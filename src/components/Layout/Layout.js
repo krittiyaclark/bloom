@@ -7,12 +7,14 @@ import {
 	StyledContainer,
 } from '../Layout/Layout.styles';
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
+import { auth } from '../../config/firebaseConfig';
 
 import Footer from '../Footer/Footer';
 
 class Layout extends Component {
 	state = {
 		showSideDrawer: false,
+		currentUser: null,
 	};
 
 	sideDrawerClosedHandler = () => {
@@ -25,10 +27,27 @@ class Layout extends Component {
 		});
 	};
 
+	unsubscribeFromAuth = null;
+
+	componentDidMount() {
+		this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
+			this.setState({ currentUser: user });
+			console.log(user);
+		});
+	}
+
+	// Close subscription
+	componentWillUnmount() {
+		this.unsubscribeFromAuth();
+	}
+
 	render() {
 		return (
 			<StyledWrapper>
-				<Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} />
+				<Toolbar
+					drawerToggleClicked={this.sideDrawerToggleHandler}
+					currentUser={this.state.currentUser}
+				/>
 				<SideDrawer
 					closed={this.sideDrawerClosedHandler}
 					open={this.state.showSideDrawer}

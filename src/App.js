@@ -20,7 +20,6 @@ const App = () => (
 			<Route path='/signin' component={SignIn} />
 			<Route path='/signup' component={SignUp} />
 			<Route path='/createpost' component={CreatePost} />
-
 			<Route path='/postSummary' component={PostSummary} />
 		</Switch>
 	</Layout>
