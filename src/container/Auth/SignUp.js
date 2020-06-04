@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 
 import FormInput from '../../components/UI/FormInput/FormInput';
 
+import { auth, createUserProfileDocument } from '../../config/firebaseConfig';
+
 class SignUp extends Component {
 	state = {
 		email: '',
-		password: '',
 		firstName: '',
 		lastName: '',
+		password: '',
+		confirmPassword: '',
 	};
 
 	handleChange = (event) => {
@@ -16,9 +19,42 @@ class SignUp extends Component {
 		});
 	};
 
-	handleSubmit = (event) => {
+	handleSubmit = async (event) => {
 		event.preventDefault();
 		console.log(this.state);
+
+		const {
+			email,
+			firstName,
+			lastName,
+			password,
+			confirmPassword,
+		} = this.state;
+
+		if (password !== confirmPassword) {
+			alert("password don't match");
+			return;
+		}
+
+		try {
+			const { user } = await auth.createUserWithEmailAndPassword(
+				email,
+				password
+			);
+
+			await createUserProfileDocument(user, { firstName, lastName });
+
+			// Clear the form
+			this.setState({
+				email: '',
+				firstName: '',
+				lastName: '',
+				password: '',
+				confirmPassword: '',
+			});
+		} catch (error) {
+			console.error();
+		}
 	};
 
 	render() {
@@ -33,15 +69,6 @@ class SignUp extends Component {
 							handleChange={this.handleChange}
 							value={this.state.email}
 							label='email'
-						/>
-					</div>
-					<div className='input-field'>
-						<FormInput
-							type='password'
-							id='password'
-							handleChange={this.handleChange}
-							value={this.state.password}
-							label='password'
 						/>
 					</div>
 					<div className='input-field'>
@@ -63,7 +90,27 @@ class SignUp extends Component {
 						/>
 					</div>
 					<div className='input-field'>
-						<button className='btn bg-info'>SignUp</button>
+						<FormInput
+							type='password'
+							id='password'
+							handleChange={this.handleChange}
+							value={this.state.password}
+							label='password'
+						/>
+					</div>
+					<div className='input-field'>
+						<FormInput
+							type='password'
+							id='confirmPassword'
+							handleChange={this.handleChange}
+							value={this.state.confirmPassword}
+							label='confirm password'
+						/>
+					</div>
+					<div className='input-field'>
+						<button className='btn bg-info' type='submit'>
+							SignUp
+						</button>
 						<div className='text-danger center'>
 							{this.authError ? <p>{this.authError}</p> : null}
 						</div>
