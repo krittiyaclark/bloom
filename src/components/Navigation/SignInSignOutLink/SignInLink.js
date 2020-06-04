@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { auth } from '../../../config/firebaseConfig';
 
 import {
 	NavigationItemsUL,
@@ -12,7 +13,9 @@ const SignInLinks = (props) => (
 			<NavLink to='/createpost'>Create Post</NavLink>
 		</NavigationItemLI>
 		<NavigationItemLI>
-			<NavLink to='/'>Sign Out</NavLink>
+			<NavLink to='/' onClick={() => auth.signOut()}>
+				Sign Out
+			</NavLink>
 		</NavigationItemLI>
 		<NavigationItemLI>
 			<NavLink to='/'>USR ICON</NavLink>

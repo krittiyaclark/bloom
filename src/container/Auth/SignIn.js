@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import FormInput from '../../components/UI/FormInput/FormInput';
+import { signInWithGoogle } from '../../config/firebaseConfig';
 
 class SignIn extends Component {
 	state = {
@@ -44,6 +45,11 @@ class SignIn extends Component {
 					</div>
 					<div className='input-field'>
 						<button className='btn bg-info'>LogIn</button>
+						<button className='btn bg-info' onClick={signInWithGoogle}>
+							{' '}
+							SignIn With Google{' '}
+						</button>
+
 						<div className='text-danger center'>
 							{this.authError ? <p>{this.authError}</p> : null}
 						</div>

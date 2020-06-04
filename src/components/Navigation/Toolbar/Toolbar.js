@@ -5,6 +5,8 @@ import SignInLinks from '../SignInSignOutLink/SignInLink';
 import SignOutLinks from '../SignInSignOutLink/SignOutLink';
 import Input from '../../UI/Input/Input';
 import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
+// import { auth } from '../../../config/firebaseConfig';
+
 import {
 	ToolbarHeader,
 	ToolbarNav,
@@ -13,27 +15,29 @@ import {
 	ToolbarRight,
 } from './Toolbar.styles';
 
-const Toolbar = (props) => (
-	<ToolbarHeader>
-		<ToolbarNav>
-			<ToolbarLeft>
-				{/* <div>MENU</div> */}
-				<DrawerToggle clicked={props.drawerToggleClicked} />
-				<div>Logo</div>
+const Toolbar = (props) => {
+	console.log(props);
 
-				{/* <Logo height='80%' /> */}
-			</ToolbarLeft>
+	const links = props.currentUser ? <SignInLinks /> : <SignOutLinks />;
+	return (
+		<ToolbarHeader>
+			<ToolbarNav>
+				<ToolbarLeft>
+					{/* <div>MENU</div> */}
+					<DrawerToggle clicked={props.drawerToggleClicked} />
+					<div>Logo</div>
 
-			<ToolbarCenter>
-				<Input />
-			</ToolbarCenter>
+					{/* <Logo height='80%' /> */}
+				</ToolbarLeft>
 
-			<ToolbarRight>
-				<SignInLinks />
-				<SignOutLinks />
-			</ToolbarRight>
-		</ToolbarNav>
-	</ToolbarHeader>
-);
+				<ToolbarCenter>
+					<Input />
+				</ToolbarCenter>
+
+				<ToolbarRight>{links}</ToolbarRight>
+			</ToolbarNav>
+		</ToolbarHeader>
+	);
+};
 
 export default Toolbar;
