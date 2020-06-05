@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 
 import FormInput from '../../components/UI/FormInput/FormInput';
 import FormTextArea from '../../components/UI/FormTextArea/FormTextArea';
+import Button from '../../components/UI/Button/Button';
+import Card from '../../components/UI/Card/Card';
+
 import { createPost } from '../../store/actions/post.action';
 
 class CreatePost extends Component {
@@ -25,9 +28,9 @@ class CreatePost extends Component {
 
 	render() {
 		return (
-			<div>
+			<Card>
 				<form onSubmit={this.handleSubmit} className='bg-white'>
-					<h5 className='text-grey'>Create New Post</h5>
+					<h2 className='text-grey'>Create New Post</h2>
 					<div className='input-field'>
 						<FormInput
 							type='text'
@@ -47,13 +50,13 @@ class CreatePost extends Component {
 						/>
 					</div>
 					<div className='input-field'>
-						<button className='btn bg-info'>Create Post</button>
+						<Button type='submit'>Create Post</Button>
 						<div className='text-danger center'>
 							{this.authError ? <p>{this.authError}</p> : null}
 						</div>
 					</div>
 				</form>
-			</div>
+			</Card>
 		);
 	}
 }

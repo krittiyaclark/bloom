@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
-import FormInput from '../../components/UI/FormInput/FormInput';
-import { auth, signInWithGoogle } from '../../config/firebaseConfig';
+import FormInput from '../../../components/UI/FormInput/FormInput';
+import Button from '../../../components/UI/Button/Button';
+
+import { auth, signInWithGoogle } from '../../../config/firebaseConfig';
+
+import './SignIn.css';
 
 class SignIn extends Component {
 	state = {
@@ -30,9 +34,10 @@ class SignIn extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='sign-in'>
 				<form onSubmit={this.handleSubmit} className='bg-white'>
-					<h5 className='text-grey'>SignIn</h5>
+					<h2 className='text-grey'>I already have an account</h2>
+					<p className='title'>Sign in with your email and password</p>
 					<div className='input-field'>
 						<FormInput
 							type='email'
@@ -51,12 +56,15 @@ class SignIn extends Component {
 							label='password'
 						/>
 					</div>
-					<div className='input-field'>
-						<button className='btn bg-info'>LogIn</button>
-						<button className='btn bg-info' onClick={signInWithGoogle}>
+					<div className='input-field buttons'>
+						<Button type='submit'>SignIn</Button>
+						<Button
+							className='btn bg-info'
+							type='submit'
+							onClick={signInWithGoogle}>
 							{' '}
 							SignIn With Google{' '}
-						</button>
+						</Button>
 
 						<div className='text-danger center'>
 							{this.authError ? <p>{this.authError}</p> : null}

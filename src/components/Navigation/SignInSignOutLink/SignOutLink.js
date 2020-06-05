@@ -9,7 +9,7 @@ import {
 const SignOutLinks = (props) => (
 	<NavigationItemsUL>
 		<NavigationItemLI>
-			<NavLink to='/signinsignup'>Signup</NavLink>
+			<NavLink to='/signinsignup'>Sign In</NavLink>
 		</NavigationItemLI>
 		{/* <NavigationItemLI>
 			<NavLink to='/signin'>Login</NavLink>

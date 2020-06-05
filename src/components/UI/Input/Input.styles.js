@@ -1,21 +1,19 @@
 import styled from 'styled-components';
 
 export const StyledInput = styled.input`
-	font-size: 16px;
-	border: solid 1px #dbdbdb;
-	border-radius: 3px;
-	color: #262626;
-	padding: 7px 33px;
-	border-radius: 3px;
-	color: #999;
-	cursor: text;
-	font-size: 14px;
-	font-weight: 300;
-	text-align: center;
-	background: #fafafa;
+	background: none;
+	background-color: white;
+	color: $sub-color;
+	font-size: 18px;
+	padding: 10px 10px 10px 5px;
+	display: block;
+	width: 100%;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid $sub-color;
+	margin: 25px 0;
 
-	&:active,
 	&:focus {
-		text-align: left;
+		outline: none;
 	}
 `;

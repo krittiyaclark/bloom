@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 
-import FormInput from '../../components/UI/FormInput/FormInput';
+import FormInput from '../../../components/UI/FormInput/FormInput';
+import Button from '../../../components/UI/Button/Button';
 
-import { auth, createUserProfileDocument } from '../../config/firebaseConfig';
+import {
+	auth,
+	createUserProfileDocument,
+} from '../../../config/firebaseConfig';
+
+import './SignUp.css';
 
 class SignUp extends Component {
 	state = {
@@ -59,9 +65,10 @@ class SignUp extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='sign-up'>
 				<form onSubmit={this.handleSubmit} className='bg-white'>
-					<h5 className='text-grey'>Sign Up</h5>
+					<h2 className='text-grey'>I do not have a account</h2>
+					<p className='title'>Sign up with your email and password</p>
 					<div className='input-field'>
 						<FormInput
 							type='email'
@@ -108,9 +115,7 @@ class SignUp extends Component {
 						/>
 					</div>
 					<div className='input-field'>
-						<button className='btn bg-info' type='submit'>
-							SignUp
-						</button>
+						<Button type='submit'>SignUp</Button>
 						<div className='text-danger center'>
 							{this.authError ? <p>{this.authError}</p> : null}
 						</div>

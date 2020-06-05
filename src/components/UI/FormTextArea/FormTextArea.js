@@ -1,18 +1,16 @@
 import React from 'react';
 
+import './FormTextArea.css';
+
 const FormTextArea = ({ handleChange, label, ...otherProps }) => {
 	return (
-		<div className='container'>
-			<textarea
-				className='form-input'
-				onChange={handleChange}
-				{...otherProps}
-			/>
+		<div className='group'>
+			<textarea className='textarea' onChange={handleChange} {...otherProps} />
 			{label ? (
 				<label
 					className={`${
 						otherProps.value.length ? 'shrink' : ''
-					} form-input-label`}>
+					}textarea-label`}>
 					{label}
 				</label>
 			) : null}
