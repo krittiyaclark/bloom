@@ -6,7 +6,7 @@ import FormTextArea from '../../components/UI/FormTextArea/FormTextArea';
 import Button from '../../components/UI/Button/Button';
 import Card from '../../components/UI/Card/Card';
 
-import { createPost } from '../../store/actions/post.action';
+import { createPost } from '../../redux/post/post.actions';
 
 class CreatePost extends Component {
 	state = {
@@ -23,7 +23,7 @@ class CreatePost extends Component {
 	handleSubmit = (event) => {
 		event.preventDefault();
 		console.log(this.state);
-		this.props.createPost(this.state);
+		// this.props.createPost(this.state);
 	};
 
 	render() {
@@ -61,12 +61,13 @@ class CreatePost extends Component {
 	}
 }
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		createPost: (post) => {
-			dispatch(createPost(post));
-		},
-	};
-};
+// const mapDispatchToProps = (dispatch) => {
+// 	return {
+// 		createPost: (post) => {
+// 			dispatch(createPost(post));
+// 		},
+// 	};
+// };
 
-export default connect(null, mapDispatchToProps)(CreatePost);
+// export default connect(null, mapDispatchToProps)(CreatePost);
+export default CreatePost;

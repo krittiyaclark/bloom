@@ -1,4 +1,4 @@
-import * as PostActionTypes from '../actions/post.action.types';
+import * as PostActionTypes from './post.actions.types';
 
 const INITIAL_STATE = {
 	postsProjectList: [

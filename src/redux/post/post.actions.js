@@ -1,4 +1,4 @@
-import * as PostActionTypes from './post.action.types';
+import * as PostActionTypes from './post.actions.types';
 
 export const createPost = (post) => {
 	return (dispatch, getState, { getFirestore, getFirebase }) => {

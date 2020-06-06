@@ -32,11 +32,11 @@ class Dashboard extends Component {
 	}
 }
 
-const mapStateToProps = (state) => {
-	// console.log(state);
-	return {
-		posts: state.post.postsProjectList,
-	};
-};
+// const mapStateToProps = (state) => {
+// 	// console.log(state);
+// 	return {
+// 		posts: state.post.postsProjectList,
+// 	};
+// };
 
-export default connect(mapStateToProps)(Dashboard);
+export default Dashboard;

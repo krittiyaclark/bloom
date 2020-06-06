@@ -9,7 +9,7 @@ import Dashboard from './components/Dashboards/Dashboard/Dashboard';
 import SignInAndSignUpPage from './components/SignInAndSignUpPage/SignInAndSignUpPage';
 import CreatePost from './container/CreatePost/CreatePost';
 
-import Layout from './components/Layout/Layout';
+import Layout from './container/Layout/Layout';
 
 import './App.css';
 
@@ -18,8 +18,6 @@ const App = () => (
 		<Switch>
 			<Route exact path='/' component={Dashboard} />
 			<Route path='/post/:id' component={PostDetail} />
-			{/* <Route path='/signin' component={SignIn} />
-			<Route path='/signup' component={SignUp} /> */}
 			<Route path='/createpost' component={CreatePost} />
 			<Route path='/postSummary' component={PostSummary} />
 			<Route path='/signinsignup' component={SignInAndSignUpPage} />

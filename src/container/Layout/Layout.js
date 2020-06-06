@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import Toolbar from '../Navigation/Toolbar/Toolbar';
-import {
-	StyledWrapper,
-	StyledSection,
-	StyledContainer,
-} from '../Layout/Layout.styles';
-import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
+import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import { StyledWrapper, StyledSection, StyledContainer } from './Layout.styles';
+import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import { auth, createUserProfileDocument } from '../../config/firebaseConfig';
-
-import Footer from '../Footer/Footer';
+import { setCurrentUser } from '../../redux/user/user.actions';
+import Footer from '../../components/Footer/Footer';
 
 class Layout extends Component {
 	state = {
 		showSideDrawer: false,
-		currentUser: null,
+		// currentUser: null,
 	};
 
 	sideDrawerClosedHandler = () => {
@@ -30,21 +27,21 @@ class Layout extends Component {
 	unsubscribeFromAuth = null;
 
 	componentDidMount() {
+		const { setCurUser } = this.props;
+
 		this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
 			if (userAuth) {
 				const userRef = await createUserProfileDocument(userAuth);
 
 				userRef.onSnapshot((snapShot) => {
-					this.setState({
-						currentUser: {
-							id: snapShot.id,
-							...snapShot.data(),
-						},
+					setCurUser({
+						id: snapShot.id,
+						...snapShot.data(),
 					});
 					console.log(this.state);
 				});
 			}
-			this.setState({ currentUser: userAuth });
+			setCurUser(userAuth);
 		});
 	}
 
@@ -56,10 +53,7 @@ class Layout extends Component {
 	render() {
 		return (
 			<StyledWrapper>
-				<Toolbar
-					drawerToggleClicked={this.sideDrawerToggleHandler}
-					currentUser={this.state.currentUser}
-				/>
+				<Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} />
 				<SideDrawer
 					closed={this.sideDrawerClosedHandler}
 					open={this.state.showSideDrawer}
@@ -73,4 +67,8 @@ class Layout extends Component {
 	}
 }
 
-export default Layout;
+const mapDispatchToProps = (dispatch) => ({
+	setCurUser: (user) => dispatch(setCurrentUser(user)),
+});
+
+export default connect(null, mapDispatchToProps)(Layout);
